@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            margin: 5px;
+        }
+        #appointments {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Appointment Management System</h2>
+    <form id="registerForm">
+        <h3>Register</h3>
+        Username: <input type="text" id="regUsername"><br>
+        Password: <input type="password" id="regPassword"><br>
+        <input type="submit" value="Register">
+    </form>
+    <hr>
+    <form id="loginForm">
+        <h3>Login</h3>
+        Username: <input type="text" id="loginUsername"><br>
+        Password: <input type="password" id="loginPassword"><br>
+        <input type="submit" value="Login">
+    </form>
+    <hr>
+    <form id="appointmentForm">
+        <h3>Schedule Appointment</h3>
+        Date: <input type="text" id="appointmentDate"><br>
+        Time: <input type="text" id="appointmentTime"><br>
+        Purpose: <input type="text" id="appointmentPurpose"><br>
+        Location: <input type="text" id="appointmentLocation"><br>
+        <input type="submit" value="Schedule Appointment">
+    </form>
+    <div id="appointments">
+        <h3>Your Appointments</h3>
+        <ul id="appointmentList"></ul>
+    </div>
+    <script>
+        document.getElementById("registerForm").onsubmit = function(event) {
+            event.preventDefault();
+            var regUsername = document.getElementById("regUsername").value;
+            var regPassword = document.getElementById("regPassword").value;
+            console.log("Registering user:", regUsername);
+            // Call Java code to handle user registration
+            // You would typically use AJAX to send data to the server
+        };
+
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault();
+            var loginUsername = document.getElementById("loginUsername").value;
+            var loginPassword = document.getElementById("loginPassword").value;
+            console.log("Logging in user:", loginUsername);
+            // Call Java code to handle user login
+        };
+
+        document.getElementById("appointmentForm").onsubmit = function(event) {
+            event.preventDefault();
+            var appointmentDate = document.getElementById("appointmentDate").value;
+            var appointmentTime = document.getElementById("appointmentTime").value;
+            var appointmentPurpose = document.getElementById("appointmentPurpose").value;
+            var appointmentLocation = document.getElementById("appointmentLocation").value;
+            console.log("Scheduling appointment:", appointmentPurpose);
+            // Call Java code to handle appointment scheduling
+        };
+    </script>
+</body>
+</html>
