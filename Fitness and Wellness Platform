@@ -1,0 +1,71 @@
+package com.fitness_wellness;
+
+import java.util.Scanner;
+
+//Define Activity class to represent a fitness activity
+class Activity {
+ private String name;
+ private int duration; // in minutes
+
+ public Activity(String name, int duration) {
+     this.name = name;
+     this.duration = duration;
+ }
+
+ // Getters
+ public String getName() {
+     return name;
+ }
+
+ public int getDuration() {
+     return duration;
+ }
+}
+
+//Define FitnessTracker class to manage activities
+public class FitnessTracker {
+ private Activity[] activities;
+ private int currentIndex;
+
+ public FitnessTracker(int maxSize) {
+     activities = new Activity[maxSize];
+     currentIndex = 0;
+ }
+
+ // Method to add an activity
+ public void addActivity(Activity activity) {
+     if (currentIndex < activities.length) {
+         activities[currentIndex++] = activity;
+         System.out.println("Activity added successfully.");
+     } else {
+         System.out.println("Cannot add activity. Tracker is full.");
+     }
+ }
+
+ // Method to display all activities
+ public void displayActivities() {
+     System.out.println("Fitness Activities:");
+     for (Activity activity : activities) {
+         if (activity != null) {
+             System.out.println(activity.getName() + ": " + activity.getDuration() + " minutes");
+         }
+     }
+ }
+
+ // Main method for testing
+ public static void main(String[] args) {
+     FitnessTracker tracker = new FitnessTracker(5); // Initialize with capacity for 5 activities
+     Scanner scanner = new Scanner(System.in);
+
+     // Add activities
+     tracker.addActivity(new Activity("Running", 30));
+     tracker.addActivity(new Activity("Cycling", 45));
+     tracker.addActivity(new Activity("Weightlifting", 60));
+
+     // Display activities
+     tracker.displayActivities();
+
+     // Close scanner
+     scanner.close();
+ }
+}
